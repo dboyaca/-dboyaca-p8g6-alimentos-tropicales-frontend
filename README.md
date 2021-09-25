@@ -1,1 +1,1 @@
-# -dboyaca-p8g6-alimentos-tropicales-frontend
+# p8g6-alimentos-tropicales-frontend
