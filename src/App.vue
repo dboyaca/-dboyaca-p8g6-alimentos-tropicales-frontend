@@ -12,9 +12,9 @@
         </div>
 
         <div class="auth-menu">
-          <button  v-if="!isAuth" v-on:click="loadLogIn">  Iniciar Sesión  </button>
-          <button  v-if="!isAuth" v-on:click="loadSignUp"> Registrarse     </button>
-          <button  v-if="isAuth" v-on:click="logOut">      Cerrar Sesión   </button>
+          <button  v-if="!isAuth" v-on:click="loadLogIn">    Iniciar Sesión  </button>
+          <button  v-if="!isAuth" v-on:click="loadSignUp">   Registrarse     </button>
+          <button  v-if="isAuth"  v-on:click="logOut">      Cerrar Sesión   </button>
         </div>
       </nav>
     </div>
@@ -60,7 +60,7 @@
           this.$router.push({name: "login"})
         }
         else{
-          this.$router.push({name: "home"});
+          this.$router.push({name:"home"})
         }
       },
 
@@ -71,24 +71,34 @@
       loadSignUp: function(){
         this.$router.push({name: "signup"})
       },
-  /*
-      loadAddCultivos: function(){
-        console.log("Cargando")
+
+      loadAddCultivo: function(){
+        console.log("Cargando estoy acá en agregar cultivos")
         this.$router.push({name:"addcultivo"})
       },
-      */
+
+      logOut: function(){
+        localStorage.clear();
+        this.isAuth = false;
+        alert('Sesión terminada')
+        this.verifyAuth();
+      },
 
       completedLogIn: function(data){
         localStorage.setItem('username', data.username);
         localStorage.setItem('tokenRefresh', data.tokenRefresh);
         localStorage.setItem('tokenAccess', data.tokenAccess);
         localStorage.setItem('isAuth', true);
-        alert("Autenticación exitosa");
         this.verifyAuth();
       },
       completedSignUp: function(data){
         alert("Registro exitoso");
         this.completedLogIn(data);
+      },
+
+      completedAddCultivo: function(data){
+        console.log("Llegue pleno hasta acá")
+        alert("Registro exitoso")
       },
 /*
       completedAddCultivo: function(data){
@@ -96,7 +106,9 @@
       },
       */
 
+     /*Función que se carga apenas se carga un componente o la app*/
     created : function(){
+      this.verifyAuth()
     }
 
   }

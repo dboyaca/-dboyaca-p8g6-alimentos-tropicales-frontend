@@ -30,15 +30,11 @@
                     username: "",
                     password: "",
                     name: "",
-                    email: "",
-                    account: {
-                        lastChangeDate: (new Date()).toJSON().toString(),
-                        balance       : 0,
-                        isActive      : true
-                    }
+                    email: ""
                 }
             }
         },
+
         methods: {
             processSignUp: function(){
                 console.log(this.user);

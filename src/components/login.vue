@@ -17,7 +17,7 @@
 </template>
 
 <script>
-    //import axios from 'axios';
+    import axios from 'axios';
     export default {
         name: "LogIn",
         
@@ -30,7 +30,6 @@
             }
         },
         methods: {
-            /*
             processLogInUser: function(){
                 axios.post(
                     "http://localhost:8000/login/",
@@ -41,7 +40,7 @@
                     let dataLogIn = {
                         username     : this.user.username,
                         tokenAccess  : result.data.access,
-                        tokenRefresh : result.data.refresh,
+                        tokenRefresh : result.data.refresh
                     }
                     this.$emit('completedLogIn', dataLogIn)
                 })
@@ -50,7 +49,7 @@
                         alert("ERROR 401: Credenciales Incorrectas.");
                 });
             }
-            */
+            
         }
     }
 </script>

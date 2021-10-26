@@ -3,7 +3,8 @@ import App                                    from './App.vue'
 
 import Login                                  from './components/login.vue'
 import SignUp                                 from './components/signUp.vue'
-
+import AddCultivo                             from './components/addCultivo.vue'
+import Home                                   from './components/home.vue'
 
 const routes = [
   {
@@ -21,24 +22,19 @@ const routes = [
     name: "signup",
     component: SignUp
   },
-  /*
+  
   {
     path: '/cultivo/add',
     name: "addcultivo",
     component: AddCultivo
-  }
-  
+  },
+
   {
-    path: '/user/home',
+    path: '/home',
     name: "home",
     component: Home
-  },
-  {
-    path: '/user/account',
-    name: "account",
-    component: Account
   }
-  */
+  
 ];
 
 const router = createRouter({
